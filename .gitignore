@@ -9,4 +9,3 @@ htmlcov/
 *.egg-info/
 loadtests/results/*
 !loadtests/results/.gitkeep
-scalability_load_testing_lab.md
