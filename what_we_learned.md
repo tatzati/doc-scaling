@@ -64,7 +64,15 @@ and latency percentiles needed for another engineer to reproduce them.
 - Editable installation: `pip install -e '.[test]'` succeeds.
 - Python source compilation: succeeds with `compileall`.
 - GitHub repository: `https://github.com/tatzati/doc-scaling`.
-- No throughput, latency, capacity, or scaling claims have been made yet.
+- A local Phase 1 stress test is recorded in
+  `docs/experiments/phase-1-baseline-stress-test.md`.
+- The first observed bottleneck was SQLAlchemy connection-pool saturation: the
+  default pool reached `size 5 + overflow 10` under concurrent database work.
+- At concurrency 100, the SQLite-backed document read achieved 10.23 RPS with
+  2.91% success; 100 requests hit the 10-second client timeout.
+- The server stayed alive and used approximately 0.2% CPU in a post-test
+  sample, so this run did not indicate CPU exhaustion.
+- These are local SQLite observations, not PostgreSQL capacity claims.
 
 ## Questions for the Next Phase
 
