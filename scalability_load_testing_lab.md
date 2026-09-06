@@ -1058,9 +1058,10 @@ The project is successful when you can demonstrate all of the following:
 
 Phase 1 is complete for the items marked below. The current baseline intentionally
 uses in-process background processing and does not yet include Redis, RabbitMQ,
-MinIO, distributed tracing, dashboards, or load-test experiments. The Phase 1
-test suite passes 5 tests, and the project installs reproducibly with
-`pip install -e '.[test]'`.
+MinIO, distributed tracing, dashboards, or k6-based load testing. A local SQLite
+baseline stress test and initial database connection-pool bottleneck experiment
+are documented separately. The Phase 1 test suite passes 5 tests, and the
+project installs reproducibly with `pip install -e '.[test]'`.
 
 ### Application
 
@@ -1084,9 +1085,9 @@ test suite passes 5 tests, and the project installs reproducibly with
 ### Load Testing
 
 - [ ] k6 test suite
-- [ ] Baseline benchmark
-- [ ] Increasing-load benchmark
-- [ ] Database bottleneck experiment
+- [x] Local baseline stress benchmark with p50, p95, p99, max, RPS, and error rate
+- [x] Increasing-concurrency benchmark from 1 to 100 concurrent requests
+- [x] Initial database connection-pool bottleneck experiment
 - [ ] Cache experiment
 - [ ] Async processing experiment
 - [ ] Horizontal scaling experiment
@@ -1097,8 +1098,8 @@ test suite passes 5 tests, and the project installs reproducibly with
 ### Documentation
 
 - [ ] Architecture diagram
-- [ ] Benchmark methodology
-- [ ] Experiment reports
+- [x] Benchmark methodology recorded for the local stress experiment
+- [x] Initial experiment report
 - [ ] Incident reports
 - [ ] Capacity analysis
 - [x] Phase 1 README with setup and API documentation
