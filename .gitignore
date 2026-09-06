@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.env
+.coverage
+htmlcov/
+*.egg-info/
+loadtests/results/*
+!loadtests/results/.gitkeep
+scalability_load_testing_lab.md
